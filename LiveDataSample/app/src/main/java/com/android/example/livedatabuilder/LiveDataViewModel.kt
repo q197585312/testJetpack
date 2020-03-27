@@ -15,22 +15,17 @@
  */
 package com.android.example.livedatabuilder
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.liveData
-import androidx.lifecycle.switchMap
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.util.Date
+import java.util.*
 
 /**
  * Showcases different patterns using the liveData coroutines builder.
  */
 class LiveDataViewModel(
-    private val dataSource: DataSource
+        private val dataSource: DataSource
 ) : ViewModel() {
 
     // Exposed LiveData from a function that returns a LiveData generated with a liveData builder

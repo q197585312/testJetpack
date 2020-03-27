@@ -27,6 +27,14 @@ allOpen {
     annotation 'com.android.example.github.testing.OpenClass'
 }
 android {
+    signingConfigs {
+        sign {
+            storeFile file('F:\\keystore\\afb88.keystore.jks')
+            storePassword '123456'
+            keyAlias = 'nykj'
+            keyPassword '123456'
+        }
+    }
     compileSdkVersion build_versions.compile_sdk
     buildToolsVersion build_versions.build_tools
     defaultConfig {
@@ -36,6 +44,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "com.android.example.github.util.GithubTestRunner"
+        signingConfig signingConfigs.sign
+
     }
     buildTypes {
         debug {

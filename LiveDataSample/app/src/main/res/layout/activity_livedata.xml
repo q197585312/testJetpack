@@ -70,7 +70,7 @@
             android:paddingRight="8dp"
             android:paddingStart="8dp"
             android:paddingTop="8dp"
-            android:text="@{viewmodel.currentTimeTransformed}"
+            android:text="@{viewmodel.currentTimeTransformed,default=my_default}"
             android:textSize="18sp"
             tools:text="TOKYO" />
 

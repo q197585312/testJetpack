@@ -15,13 +15,15 @@
  */
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion build_versions.compile_sdk
     buildToolsVersion build_versions.build_tools
 
     defaultConfig {
-        applicationId 'com.example.android.persistence'
+        applicationId 'com.example.android.persistence0'
         minSdkVersion build_versions.min_sdk
         targetSdkVersion build_versions.target_sdk
         versionCode 1
@@ -91,4 +93,9 @@ dependencies {
     androidTestImplementation deps.annotations
     androidTestImplementation deps.app_compat
     androidTestImplementation deps.material
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
