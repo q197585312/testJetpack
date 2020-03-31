@@ -6,6 +6,7 @@ import android.view.Menu
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -33,8 +34,8 @@ class MainActivity : BaseActivity() {
         mBinding.vm = mMainActivityViewModel
         Handler().postDelayed(
             Runnable {
-                mMainActivityViewModel!!.openDrawer.value=true
-                mMainActivityViewModel!!.str.value="sdddd"
+                mMainActivityViewModel!!.openDrawer.value = true
+                mMainActivityViewModel!!.str.value = "sdddd"
             },
             2000
         )
@@ -44,8 +45,8 @@ class MainActivity : BaseActivity() {
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            Navigation.findNavController(MainActivity@this,R.id.nav_host_fragment)
+                .navigate(R.id.action_HomeFragment_to_HomeSecondFragment)
         }
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
@@ -67,7 +68,7 @@ class MainActivity : BaseActivity() {
         return true
     }
 
-    override fun onSupportNavigateUp(): Boolean {
+    override fun onSupportNavigateUp(): Boolean {//拦截系统会回退键
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
